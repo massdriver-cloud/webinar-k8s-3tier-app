@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %} {{super()}} | Game {% endblock %}
+
+{% block content %}
+<p>You chose: {{ player_choice }}</p>
+<p>Computer chose: {{ computer_choice }}</p>
+
+{% if winner == 'tie' %}
+<h1>There was a tie!</h1>
+<form method="post" action="/">
+  <input type="submit" value="Play Again" name="play_again"/>
+</form>
+
+{% else %}
+<h1>{{ winner.capitalize() }} WON!</h1>
+<form method="post" action="/">
+  <input type="submit" value="Play Again" name="play_again"/>
+</form>
+{% endif %}
+{% endblock %}

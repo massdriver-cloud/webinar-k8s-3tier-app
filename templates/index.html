@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ super() }} | Home {% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+    <h1>Rock Paper Scissors</h1>
+    <form method="POST" action="{{ url_for('rps', choice='rock') }}">
+      <label for="choice">Choose your move:</label>
+      <select name="choice" id="choice">
+        <option value="rock">Rock</option>
+        <option value="paper">Paper</option>
+        <option value="scissors">Scissors</option>
+      </select>
+      <button type="submit">Play</button>
+    </form>
+    <br>
+    <a href="{{ url_for('history') }}"><button>Game History</button></a>
+  </body>
+</html>
+
+{% endblock %}
